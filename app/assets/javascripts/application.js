@@ -12,5 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+function LikePost(data,event)
+{
+	$.get('http://localhost:3000/posts/'+data+'/like');
+};
+function UnlikePost(data,event)
+{
+	$.get('http://localhost:3000/posts/'+data+'/unlike');
+};
+function DeletePost(data,event)
+{
+	$.ajax({
+		url: 'http://localhost:3000/posts/'+data,
+		method: 'DELETE'
+	});
+};

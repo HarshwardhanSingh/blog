@@ -1,0 +1,12 @@
+.post{data:{id: post.id}}
+	.postHeader
+		= image_tag(post.user.avatar.url(:thumb),class: 'img-circle')
+		= post.user.username
+	.postBody
+		%h3= post.title
+		%p= post.content
+	.postFooter
+		- if post.liked_by?(current_user)
+			= link_to "Dislike","#",class: 'unlike-btn btn-danger',onclick: 'UnlikePost("#{post.id}")'
+		- else
+			= link_to "Like","#",class: 'like-btn btn-default',onclick: 'LikePost("#{post.id}")'

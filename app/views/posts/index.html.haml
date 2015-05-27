@@ -1,0 +1,15 @@
+#mainContainer
+  .row
+    .col-xs-4.col-sm-3.col-md-3.col-lg-3
+      #verticleNavigation
+        %ul.nav.nav.tabs
+          %li= link_to "Home",posts_path
+          %li= link_to "New Post",new_post_path
+          %li= link_to "Account",edit_user_registration_path
+          %li= link_to "Profile"
+          %li= link_to "Sign out",destroy_user_session_path,method: :delete
+    .col-xs-8.col-sm-8.col-md-8.col-lg-8
+      #feedArea
+        - if !@posts.blank?
+          = render partial: 'post',collection: @posts
+
